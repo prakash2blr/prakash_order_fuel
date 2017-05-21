@@ -1,0 +1,46 @@
+<header>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" id="menu-button-help" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand " href="#home">FuelUP</a>
+		 <a class="navbar-brand" href="#home">
+		 	<input type="text" class="form-control input-md position-in-header-top" id="search-stations" placeholder="Search stations.." ng-model="stations">
+		 </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li><a class="btn btn-default fuel-button" id="logout-fan" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+<div class="home-container">
+	<div ng-repeat="bunk in bunkList" class="col-lg-4 col-sm-6 col-md-4 col-xs-12 bunkdetail-container" >
+		<div class="bunk-wrapper">
+			<div class="bunk-address">
+				<h4>{{bunk.name}}</h4>
+				{{bunk.address}}
+			</div>
+			<img ng-src="{{bunk.image_url}}" class="img-responsive bunk-image">
+			<div  class="order-container col-lg-12 col-sm-12 col-md-12 col-xs-12">
+				<button class="btn btn-info  col-lg-6 col-sm-6 col-md-6 col-xs-6" ng-click="orderFuel(bunk.id)">Order</button>
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6" >
+					<button id="decrement-fuel" ng-click="decrementFuel(bunk.id)" class="col-lg-4 col-sm-4 col-md-4 col-xs-4 glyphicon glyphicon-minus btn btn-danger"></button>
+					<span class="col-lg-4 col-sm-4 col-md-4 col-xs-4 order-count" id="order-count-{{bunk.id}}">3</span>
+					<button id="increment-fuel"  ng-click="incrementFuel(bunk.id)" class="col-lg-4 col-sm-4 col-md-4 col-xs-4 glyphicon glyphicon-plus btn btn-success" ></button>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
